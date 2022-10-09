@@ -1,47 +1,59 @@
 <template>
   <div>
-    <slot></slot>
-    <a-dropdown v-if="this.$children.length>maxCount">
-      <a-button size="small">
-        其他
-        <a-icon type="down" />
-      </a-button>
-      <slot name="menus"></slot>
-    </a-dropdown>
+    <render-dom parentTag="a-space" :vNode="this.btns">
+      <a-dropdown v-if="menus.length > 0">
+        <a-button :size="size">
+          其他
+          <a-icon type="down" />
+        </a-button>
+        <render-dom parentTag="a-menu" :vNode="this.menus" slot="overlay"></render-dom>
+      </a-dropdown>
+    </render-dom>
   </div>
 </template>
-
 <script>
+import EButton from './EButton.vue'
+import RenderDom from './RenderDom.vue'
 export default {
   name: 'EButtonGroup',
-  components: {},
+  components: { EButton, RenderDom },
   props: {
     maxCount: {
       type: Number,
       default: 2
-    }
+    },
+    size: { type: String, default: 'default' }
   },
   data () {
-    return {}
-  },
-  created () {
-    console.log(this)
-    for (var i = 0; i < this.$children.length; i++) {
-      var bcount = this.$children.length
-      if (this.$children.length > this.maxCount) {
-        bcount = this.maxCount - 1
-      }
-      if (i < bcount) {
-        // this.$children[i].solt = 'btns'
-      } else {
-        this.$children[i].solt = 'menus'
-        this.$children[i].type = 'menu'
-      }
+    return {
+      btns: [],
+      menus: []
     }
   },
-  mounted () {
-    // console.log(this)
+  created () {
+    var count = this.$slots.default.length
+    var bcount = count
+    if (count > this.maxCount) {
+      bcount = this.maxCount - 1
+    }
+    for (var i = 0; i < count; i++) {
+      this.$slots.default[i].componentOptions.propsData.size = this.size
+      if (i < bcount) {
+        this.$slots.default[i].componentOptions.propsData.kind = 'button'
+        this.btns.push(this.$slots.default[i])
+      } else {
+        this.$slots.default[i].componentOptions.propsData.kind = 'menuitem'
+        this.menus.push(this.$slots.default[i])
+      }
+    }
+
+    console.log(this)
   },
   methods: {}
+  // render (createElement) {
+  //   return (
+
+  //   )
+  // }
 }
 </script>

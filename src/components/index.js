@@ -26,6 +26,7 @@ import StandardFormRow from '@/components/StandardFormRow'
 import ArticleListContent from '@/components/ArticleListContent'
 import EButton from '@/components/ebutton/EButton'
 import EButtonGroup from '@/components/ebutton/EButtonGroup'
+import RenderDom from '@/components/ebutton/RenderDom'
 
 import Dialog from '@/components/Dialog'
 
@@ -57,5 +58,6 @@ export {
   Dialog,
 
   EButtonGroup,
-  EButton
+  EButton,
+  RenderDom
 }
