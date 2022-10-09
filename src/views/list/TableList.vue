@@ -98,9 +98,21 @@
 
         <span slot="action" slot-scope="text, record">
           <template>
-            <a @click="handleEdit(record)">配置</a>
+            <!-- <a @click="handleEdit(record)">配置</a>
             <a-divider type="vertical" />
-            <a @click="handleSub(record)">订阅报警</a>
+            <a @click="handleSub(record)">订阅报警</a> -->
+
+            <e-button-group>
+              <e-button @click="handleEdit(record)">配置</e-button>
+              <e-button @click="handleSub(record)">订阅报警1</e-button>
+              <e-button @click="handleSub(record)">订阅报警2</e-button>
+              <e-button @click="handleSub(record)">订阅报警3</e-button>
+              <e-button @click="handleSub(record)">订阅报警4</e-button>
+              <e-button @click="handleSub(record)">订阅报警5</e-button>
+              <e-button @click="handleSub(record)">订阅报警6</e-button>
+              <e-button @click="handleSub(record)">订阅报警7</e-button>
+            </e-button-group>
+
           </template>
         </span>
       </s-table>
@@ -122,6 +134,8 @@
 import moment from 'moment'
 import { STable, Ellipsis } from '@/components'
 import { getRoleList, getServiceList } from '@/api/manage'
+import EButton from '@/components/ebutton/EButton'
+import EButtonGroup from '@/components/ebutton/EButtonGroup'
 
 import StepByStepModal from './modules/StepByStepModal'
 import CreateForm from './modules/CreateForm'
@@ -190,7 +204,10 @@ export default {
     STable,
     Ellipsis,
     CreateForm,
-    StepByStepModal
+    StepByStepModal,
+
+    EButtonGroup,
+    EButton
   },
   data () {
     this.columns = columns
