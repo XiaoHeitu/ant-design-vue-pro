@@ -13,7 +13,7 @@ export default {
     kind: { type: String, default: 'button' }
   },
   data () {
-    return { component: 'a-menu-item', cssclass: 'ant-dropdown-menu-item' }
+    return { component: 'a-button', cssclass: '' }
   },
   created () {
     if (this.kind === 'button') {
