@@ -46,14 +46,7 @@ export default {
         this.menus.push(this.$slots.default[i])
       }
     }
-
-    console.log(this)
   },
   methods: {}
-  // render (createElement) {
-  //   return (
-
-  //   )
-  // }
 }
 </script>
