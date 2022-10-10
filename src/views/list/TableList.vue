@@ -108,7 +108,7 @@
 
         <span slot="action" slot-scope="text, record">
           <template>
-            <e-button-group size="small" :maxCount="3">
+            <e-button-group size="small" type="link" :maxCount="2">
               <e-button @click="handleEdit(record)" type="danger">配置</e-button>
               <e-button @click="handleSub(record)">订阅报警1</e-button>
               <e-button @click="handleSub(record)">订阅报警2</e-button>

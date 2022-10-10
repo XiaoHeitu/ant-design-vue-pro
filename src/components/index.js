@@ -25,6 +25,7 @@ import TagSelect from '@/components/TagSelect'
 import StandardFormRow from '@/components/StandardFormRow'
 import ArticleListContent from '@/components/ArticleListContent'
 import EButton from '@/components/ebutton/EButton'
+import EDivider from '@/components/ebutton/EDivider'
 import EButtonGroup from '@/components/ebutton/EButtonGroup'
 import RenderDom from '@/components/ebutton/RenderDom'
 
@@ -57,7 +58,8 @@ export {
 
   Dialog,
 
-  EButtonGroup,
   EButton,
+  EDivider,
+  EButtonGroup,
   RenderDom
 }

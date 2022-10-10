@@ -1,5 +1,12 @@
 <template>
-  <component :is="component" :class="cssclass" :size="size" :type="type" @click="onclick">
+  <component
+    :is="component"
+    :class="cssclass"
+    :size="size"
+    :icon="icon"
+    :type="type"
+    @click="onclick"
+  >
     <slot></slot>
   </component>
 </template>
@@ -10,7 +17,8 @@ export default {
   props: {
     size: { type: String, default: 'default' },
     type: { type: String, default: 'default' },
-    kind: { type: String, default: 'button' }
+    kind: { type: String, default: 'button' },
+    icon: { type: String, default: null }
   },
   data () {
     return { component: 'a-button', cssclass: '' }
